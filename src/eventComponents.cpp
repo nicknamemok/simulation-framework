@@ -1,4 +1,4 @@
-#include "./eventComponents.cpp"
+#include "eventComponents.cpp"
 
 void MissionCommandComponent::handleEvent(const EventContext& context, const Event& event) {
     switch (event.type) {

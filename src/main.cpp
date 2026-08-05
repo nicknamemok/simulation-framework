@@ -1,9 +1,9 @@
 #include <vector>
 
-#include "./fixedComponents.hpp"
-#include "./eventComponents.hpp"
-#include "./continuousComponents"
-#include "./simulationRuntime.hpp"
+#include "fixedComponents.hpp"
+#include "eventComponents.hpp"
+#include "continuousComponents"
+#include "simulationRuntime.hpp"
 
 int main() {
     SimulationSignals state;

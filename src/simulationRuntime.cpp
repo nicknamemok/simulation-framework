@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <utility>
 
-#include "./simulationRuntime.hpp"
-#include "./continuousComponents.hpp"
-#include "./fixedComponents.hpp"
+#include "simulationRuntime.hpp"
+#include "continuousComponents.hpp"
+#include "fixedComponents.hpp"
 
 SimulationRuntime::run() {
     // Initial reset

@@ -1,4 +1,4 @@
-#include "./fixedComponents.hpp"
+#include "fixedComponents.hpp"
 
 double FixedStepComponent::getfreqHz() {
     return freqHz;

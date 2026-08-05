@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "./component.hpp"
+#include "component.hpp"
 
 struct FixedStepContext {
     double currentTime;

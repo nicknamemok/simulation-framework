@@ -3,9 +3,9 @@
 #include <vector>
 #include
 
-#include "./eventComponents"
-#include "./continousComponents"
-#include "./fixedComponents"
+#include "eventComponents"
+#include "continousComponents"
+#include "fixedComponents"
 
 class SimulationRuntime {
 private:

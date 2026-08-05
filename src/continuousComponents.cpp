@@ -1,4 +1,4 @@
-#include "./continuousComponents.hpp"
+#include "continuousComponents.hpp"
 
 #include <algoirthm>
 
