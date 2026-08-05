@@ -1,47 +1,33 @@
 #pragma once
 
+#include <string>
+
 struct ComponentDefinition {
-    string name;
-    vector<InputDefinition> inputs;
-    vector<OutputDefinition> outputs;
+    std::string name;
 };
 
-struct FixedStepComponentDefinition {
-    ComponentDefinition base;
-    double period_s;
-};
-
-struct ContinuousStepComponentDefinition {
-    ComponentDefinition base;
-    double base_time;
-};
-
-struct EventComponentDefinition {
-    ComponentDefinition base;
-    bool something;
+struct InitializeContext {
+    // Context for runtime
 };
 
 class Component {
 public:
-    virtual ComponentDefinition definition() const = 0;
-    virtual void initialize(const InitializeContext& context) = 0;
+    // Default destructor is defined as virtual for polymorphism so that if a pointer to a child class with type Component* is created, it will be properly destructed
     virtual ~Component() = default; 
+
+    // const here ensures that 'this' (the Component instance) will not be altered in this call
+    virtual ComponentDefinition definition() const = 0;
+    
+    // All others are also pure virtual functions so they need to be explicitly set in child classes, this also means Component class should not be instantiated directly
+    virtual void initialize(const InitializeContext& context) = 0;
+    virtual void reset() = 0;
+    virtual void shutdown() = 0;
 };
 
-class FixedStepComponent : public Component {
+class FlightControl: public Component {
 public:
-    void definition(FixedStepComponentDefinition& component_definition) const override;
-    void initialize(const InitializeContext& context);
-};
-
-class ContinuousStepComponent : public Component {
-public:
-    void definition(ContinuousStepComponentDefinition& component_definition) const override;
-    void initialize(const InitializeContext& context);
-};
-
-class EventComponent : public Component {
-public:
-    definition(EventComponentDefinition& component_definition) const override;
-    void initialize(const InitializeContext& context);
+    ComponentDefinition definition() const override;
+    void initialize(const InitializeContext& context) override;
+    void reset() override;
+    void shutdown() override;
 };
