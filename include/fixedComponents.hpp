@@ -9,8 +9,8 @@ struct FixedStepContext {
 };
 
 class FixedStepComponent: public Component {
-private:
-    const double freqHz;
+protected:
+    double freqHz;
 
 public:
     // Constructor. List initializer is preferred and should be default in constructors as they always work while assignment sometimes doesn't work
@@ -18,7 +18,7 @@ public:
     explicit FixedStepComponent(double _freqHz, SimulationSignals& _state) : freqHz(_freqHz), Component(_state) {}
 
     // Getter function
-    double getfreqHz();
+    double getFreqHz();
 
     // const guarantees we don't change context even when we're passing by reference, and full virtual means abstract function
     virtual void step(const FixedStepContext& context) = 0;
@@ -40,4 +40,4 @@ public:
     void step(const FixedStepContext& context) override;
 
     void reset() override;
-}
+};

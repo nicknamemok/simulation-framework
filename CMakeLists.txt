@@ -13,6 +13,7 @@ add_executable(
     src/continuousComponents.cpp
     src/eventComponents.cpp
     src/simulationRuntime.cpp
+    src/logger.cpp
 )
 
 target_include_directories(

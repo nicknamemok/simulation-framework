@@ -14,6 +14,7 @@ struct SimulationSignals {
     // Inputs
     double commandedVelocity = 0.0;
     double controlForce = 0.0;
+    double externalForce = 0.0;
 
     // States
     double positionX = 0.0;

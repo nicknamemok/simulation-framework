@@ -7,9 +7,9 @@ struct ContinuousContext {
     double endTime;
 };
 
-class ContinousComponent : public Component {
+class ContinuousComponent : public Component {
 private:
-    const double maxStepS;
+    double maxStepS;
 
 public:
     explicit ContinuousComponent(SimulationSignals& _state, double _maxStepS)
@@ -21,7 +21,7 @@ public:
     virtual void advance(const ContinuousContext& context) = 0;
 };
 
-class VehicleDynamicsComponent : public ContinousComponent {
+class VehicleDynamicsComponent : public ContinuousComponent {
 private:
     const double mass;
     const double dragCoefficient;
@@ -37,4 +37,4 @@ public:
     void advance(const ContinuousContext& context) override;
 
     void reset() override;
-}
+};

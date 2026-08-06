@@ -1,6 +1,8 @@
 #include "fixedComponents.hpp"
 
-double FixedStepComponent::getfreqHz() {
+#include <iostream>
+
+double FixedStepComponent::getFreqHz() {
     return freqHz;
 }
 

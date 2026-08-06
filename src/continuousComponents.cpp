@@ -1,8 +1,9 @@
 #include "continuousComponents.hpp"
 
-#include <algoirthm>
+#include <algorithm>
+#include <iostream>
 
-double ContinousComponent::getMaxStepS() {
+double ContinuousComponent::getMaxStepS() {
     return maxStepS;
 }
 
@@ -16,14 +17,14 @@ void VehicleDynamicsComponent::advance(const ContinuousContext& context) {
         // The delta time is either the next event time (remaining time) or the max time we can go without an event
         // For this simple solver, we are internally time marching in this continuous component until the
         // last step which may be a partial step to the next even
-        const deltaTime = std::min(
+        const double deltaTime = std::min(
             getMaxStepS(),
             remainingTime
-        )
+        );
 
         // Simple kinematics
-        const acceleration = (
-            state.controlForce -
+        const double acceleration = (
+            state.controlForce + state.externalForce -
             dragCoefficient * state.velocityX
         ) / mass;
         state.positionX += state.velocityX * deltaTime;
